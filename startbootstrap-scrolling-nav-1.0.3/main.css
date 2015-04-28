@@ -3,5 +3,13 @@
 }
 
 .servings-yield {
-/*	background-color: blue;*/
+
+	background-color: #D1FFFF;
+	padding: 5px;
+/*	margin: 2px*/;
+}
+
+.align-left {
+
+	text-align: left;
 }
