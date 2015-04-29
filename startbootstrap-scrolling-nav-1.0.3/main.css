@@ -1,3 +1,11 @@
+#recipe-tpl {
+	display: none;
+}
+
+#ingredient-tpl {
+	display: none;
+}
+
 .column-heading {
 	text-align: center;
 }
@@ -12,4 +20,8 @@
 .align-left {
 
 	text-align: left;
+}
+
+.input-name .inputdescription .categories-section {
+	margin: 100px;
 }

@@ -115,6 +115,87 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Create a New Recipe</h1>
+                    <div class="form-group">
+                    <input type="text" class="form-control input-name" placeholder="Recipe Title">
+                    </div>
+                    <div class="form-group">
+                    <textarea class="form-control input-description" rows="3" placeholder="Recipe Description"></textarea>
+                    </div>
+                    <form>
+                        <div class="categories-section form-group col-md-6">
+                            <p class="">Category</p>
+                                <select class="form-control" >
+                                  <option></option>
+                                  <option>Main Course</option>
+                                  <option>Side Dish</option>
+                                  <option>Salad</option>
+                                  <option>Appetizer</option>
+                                  <option>Soup/Stews</option>
+                                  <option>Desserts</option>
+                                  <option>Snacks</option>
+                                  <option>Condiments</option>
+                                  <option>Beverage</option>
+                                  <option>Bread</option>
+                                </select>
+                        </div>
+                        <div class="course-section col-md-6">
+                            <p>Course</p>
+                            <select class="form-control">
+                              <option></option>
+                              <option>Breakfast</option>
+                              <option>Lunch</option>
+                              <option>Dinner</option>
+                            </select>
+                        </div>
+                        <div class="input-time-section col-md-6">
+                            <input class"input-prep-time" placeholder="Prep Time">
+                            <select>
+                                <option>Minutes</option>
+                                <option>Hours</option>
+                                <option>Days</option>
+                            </select>
+<!--                         </div> -->
+<!--                         <div> -->
+                            <input class="input-cook-time" placeholder="Cook Time">
+                            <select>
+                                <option>Minutes</option>
+                                <option>Hours</option>
+                                <option>Days</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input class"input-prep-time" placeholder="Prep Time">
+                            <select>
+                                <option>Minutes</option>
+                                <option>Hours</option>
+                                <option>Days</option>
+                            </select>
+<!--                         </div> -->
+<!--                         <div> -->
+                            <input class="input-cook-time" placeholder="Cook Time">
+                            <select>
+                                <option>Minutes</option>
+                                <option>Hours</option>
+                                <option>Days</option>
+                            </select>
+                            
+                        </div>
+                        <div class="ingredients-input-section form-group">
+                            <input class="input-quantity" placeholder="Quantity">
+                            <input list="units" placeholder="Units">
+                            <datalist id="units" >
+                              <option value="tsp">
+                              <option value="Tb">
+                              <option value="cups">
+                              <option value="oz">
+                              <option value="lbs">
+                            </datalist>
+                            <input class="input-ingredients" placeholder="Ingredient">
+                        </div>
+                        <div class="directions-input-section form-group">
+                            <textarea class="form-control input-directions" rows="3" placeholder="Directions"></textarea>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -134,12 +215,13 @@
     <!-- Contact Section Now Recipe Viewing Section-->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="recipe-viewing row">
+
                     <h1>Recipe Viewing</h1>
-                    <div id="recipe-tpl" class="recipe-viewing col-md-12">
+                    <div id="recipe-tpl" class=" col-md-12">
                         <h2 class="recipe-name">Recipe Name</h2>
-                        <div><span class="prep-time"></span><span class="cook-time"></span><span class="total-time"></span></div>
+                        <div><span class="prep-time"></span><span class="cook-time"></span><span class="total-time"></span>
+                        </div>
                         <p class="recipe-description">
                             <em>This will be a brief description of the recipe with added comments</em>
                         </p>
@@ -149,10 +231,7 @@
                                 <div class="servings-yield serves col-md-6 align-left ">Servings</div>
                                 <div class="servings-yield yield col-md-6 align-left ">Yield</div>
 
-
-                                <div class="col-md-1 align-left">4</div>
-                                <div class="col-md-2 align-left"></div>
-                                <div class="col-md-9 align-left">boneless skinless chicken breast halves (2 lb. total)</div>
+                                <div class="ingredient-list"></div>
                         </div>
                         <div class="col-md-6">
                             <h3>Directions</h3>
@@ -162,12 +241,13 @@
                                 Lay chicken on a grill over medium heat (you can hold you hand over the surface only 4 to 5 seconds) and cook, turning once, until no longer pink in the center, 4 to 6 minutes per side.
                             </p>
                         </div>
-
-
                             
-                        </div>
+                    </div>
 
-                        
+                    <div id="ingredient-tpl">
+                        <div class="quantity col-xs-1 align-left">4</div>
+                        <div class="unit col-xs-2 align-left"></div>
+                        <div class="name col-xs-9 align-left"></div>
                     </div>
                 </div>
             </div>
