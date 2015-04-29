@@ -110,21 +110,22 @@
     </section>
 
     <!-- About Section Now Create Recipe Form -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section create-recipe-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Create a New Recipe</h1>
-                    <div class="form-group">
-                    <input type="text" class="form-control input-name" placeholder="Recipe Title">
-                    </div>
-                    <div class="form-group">
-                    <textarea class="form-control input-description" rows="3" placeholder="Recipe Description"></textarea>
-                    </div>
-                    <form>
+                    <h1 class="recipe-form-heading">Create a New Recipe</h1>
+                    <form class="create-recipe-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-name" placeholder="Recipe Title">
+                            </div>
+                            <div class="form-group">
+                            <textarea class="form-control input-description" rows="3" placeholder="Recipe Description"></textarea>
+                        </div>
+                    
                         <div class="categories-section form-group col-md-6">
                             <p class="">Category</p>
-                                <select class="form-control" >
+                                <select class="form-control input-category" >
                                   <option></option>
                                   <option>Main Course</option>
                                   <option>Side Dish</option>
@@ -138,51 +139,40 @@
                                   <option>Bread</option>
                                 </select>
                         </div>
-                        <div class="course-section col-md-6">
-                            <p>Course</p>
-                            <select class="form-control">
+                        <div class="meal-section form-group col-md-6">
+                            <p>Meal</p>
+                            <select class="form-control input-meal">
                               <option></option>
                               <option>Breakfast</option>
                               <option>Lunch</option>
                               <option>Dinner</option>
                             </select>
                         </div>
-                        <div class="input-time-section col-md-6">
+                        <div class="col-md-6 form-group">
                             <input class"input-prep-time" placeholder="Prep Time">
-                            <select>
-                                <option>Minutes</option>
-                                <option>Hours</option>
-                                <option>Days</option>
-                            </select>
-<!--                         </div> -->
-<!--                         <div> -->
-                            <input class="input-cook-time" placeholder="Cook Time">
-                            <select>
+                            <select class="prep-time-units">
                                 <option>Minutes</option>
                                 <option>Hours</option>
                                 <option>Days</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <input class"input-prep-time" placeholder="Prep Time">
-                            <select>
-                                <option>Minutes</option>
-                                <option>Hours</option>
-                                <option>Days</option>
-                            </select>
-<!--                         </div> -->
-<!--                         <div> -->
+                        <div class="col-md-6 form-group">
                             <input class="input-cook-time" placeholder="Cook Time">
-                            <select>
+                            <select class="cook-time-units">
                                 <option>Minutes</option>
                                 <option>Hours</option>
                                 <option>Days</option>
                             </select>
-                            
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input class"input-serves" placeholder="Serves">
+                        </div> 
+                        <div class="form-group">
+                            <input class="input-yield" placeholder="Yield">                            
                         </div>
                         <div class="ingredients-input-section form-group">
                             <input class="input-quantity" placeholder="Quantity">
-                            <input list="units" placeholder="Units">
+                            <input list="units" class="input-units" placeholder="Units">
                             <datalist id="units" >
                               <option value="tsp">
                               <option value="Tb">
@@ -195,6 +185,7 @@
                         <div class="directions-input-section form-group">
                             <textarea class="form-control input-directions" rows="3" placeholder="Directions"></textarea>
                         </div>
+                        <input type="submit" class="submit-button">
                     </form>
                 </div>
             </div>

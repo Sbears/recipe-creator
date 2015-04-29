@@ -22,6 +22,14 @@
 	text-align: left;
 }
 
-.input-name .inputdescription .categories-section {
-	margin: 100px;
+.create-recipe-form {
+	padding-top: 50px
 }
+
+.recipe-form-heading {
+	margin-bottom: 45px;
+}
+
+/*.input-name .inputdescription .categories-section {
+	margin: 100px;
+}*/

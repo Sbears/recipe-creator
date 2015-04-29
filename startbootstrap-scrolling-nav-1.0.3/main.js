@@ -8,15 +8,18 @@ var Recipe = function(name, prepTime, cookTime, description, serves, recipeYield
 	this.recipeYield = recipeYield;
 	this.ingredients = ingredients;
 	this.directions = directions;
+	// this.category = category;
+	// this.meal = meal;
 };
 
 Recipe.prototype.render = function() {
+
 	if(!this.el) {
 		this.el = $("#recipe-tpl")
 		.clone()
 		.attr("id", null);
 	}
-
+	console.log(this.el);
 	for (var i = 0; i < this.ingredients.length; i++) {
 		
 		this.el.find(".ingredient-list").append(this.ingredients[i].render());
@@ -51,6 +54,10 @@ Ingredient.prototype.render = function() {
 	this.el.find(".unit").text(this.unit);
 	return this.el;
 };
+
+$(".create-recipe-form").on("submit", function() {
+	$(this).find()
+});
 
 	var chicken = new Ingredient("boneless skinless chicken breasts", 4);
 	var limeJuice = new Ingredient("lime juice", 0.25, "cups");
