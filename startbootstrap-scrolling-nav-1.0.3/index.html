@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="comd-12">
                     <h1>My Recipes</h1>
-                    <table class="table table-striped">
+                    <table  class="table table-striped recipe-list-container">
                       <caption></caption>
                       <thead>
                         <tr>
@@ -83,20 +83,12 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Cilantro Chicken</td>
-                          <td>Main Course</td>
-                          <td>Denise Showed me this</td>
-                          <td>xx</td>
-                          <td>xx</td>
-                        </tr>
-
-                        <tr>
-                          <td>Cilantro Chicken</td>
-                          <td>Main Course</td>
-                          <td>Denise Showed me this</td>
-                          <td>xx</td>
-                          <td>xx</td>
+                        <tr id="recipe-list-tpl">
+                          <td class="recipe-name"></td>
+                          <td class="recipe-category"></td>
+                          <td class="recipe-comment">Enter Comment</td>
+                          <td class="recipe-favorite">xx</td>
+                          <td class="recipe-view">xx</td>
                         </tr>
 
                       </tbody>
@@ -110,12 +102,12 @@
     </section>
 
     <!-- About Section Now Create Recipe Form -->
-    <section id="about" class="about-section create-recipe-form">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="recipe-form-heading">Create a New Recipe</h1>
-                    <form class="create-recipe-form">
+                    <form id="create-recipe-form">
                         <div class="form-group">
                             <input type="text" class="form-control input-name" placeholder="Recipe Title">
                             </div>
@@ -148,40 +140,59 @@
                               <option>Dinner</option>
                             </select>
                         </div>
+<!-- //////////////////////////////////////////////////////////////////////// -->
                         <div class="col-md-6 form-group">
-                            <input class"input-prep-time" placeholder="Prep Time">
-                            <select class="prep-time-units">
-                                <option>Minutes</option>
-                                <option>Hours</option>
-                                <option>Days</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 form-group">
+                            <div class="col-md-12 form-group">
+                                <input class="input-prep-time" placeholder="Prep Time">
+                                <select class="prep-time-units">
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 form-group">
                             <input class="input-cook-time" placeholder="Cook Time">
                             <select class="cook-time-units">
                                 <option>Minutes</option>
                                 <option>Hours</option>
                                 <option>Days</option>
                             </select>
+                            </div>
                         </div>
+<!-- /////////////////////////////////////////////// -->
                         <div class="col-md-6 form-group">
-                            <input class"input-serves" placeholder="Serves">
-                        </div> 
-                        <div class="form-group">
-                            <input class="input-yield" placeholder="Yield">                            
+                            <div class="col-md-12 form-group">
+                                <input class"input-serves" placeholder="Serves">
+                            </div > 
+                            <div class="col-md-12 form-group">
+                                <input class="input-yield" placeholder="Yield">                            
+                            </div>
                         </div>
-                        <div class="ingredients-input-section form-group">
-                            <input class="input-quantity" placeholder="Quantity">
-                            <input list="units" class="input-units" placeholder="Units">
-                            <datalist id="units" >
-                              <option value="tsp">
-                              <option value="Tb">
-                              <option value="cups">
-                              <option value="oz">
-                              <option value="lbs">
-                            </datalist>
-                            <input class="input-ingredients" placeholder="Ingredient">
+<!-- ///////////////////////// Ingredients Input Section  /////// -->
+                        <div class="col-md-12 form-group">
+                            <p>Enter Your Ingredients One at a Time</p>
+                            <ul class="enter-ingredient-container">
+                                
+                            </ul>
+                            <li id="ingredient-list-tpl">
+                               
+                            </li>
+                            <div class="ingredients-input-section form-group">
+                                <input name="quantity" class="input-quantity" placeholder="Quantity">
+                                <input name="unit" list="units" class="input-unit" placeholder="Units">
+                                <datalist id="units" >
+                                  <option value="tsp">
+                                  <option value="Tb">
+                                  <option value="cups">
+                                  <option value="oz">
+                                  <option value="lbs">
+                                </datalist>
+                                <input name="ingredient" class="input-ingredient" placeholder="Ingredient">
+                                <button id="enter-ingredient-button">Enter Ingredient</button>
+                            </div>
+
                         </div>
+<!-- ////////////////////////// /////////////////////  -->
                         <div class="directions-input-section form-group">
                             <textarea class="form-control input-directions" rows="3" placeholder="Directions"></textarea>
                         </div>
@@ -227,9 +238,7 @@
                         <div class="col-md-6">
                             <h3>Directions</h3>
                             <p class="recipe-directions align-left">
-                                Pound the chicken breasts to an even thickness (about 1/2 in.) and place in a shallow baking pan.
-                                In a small bowl, mix lime juice, cilantro, garlic, honey, olive oil, salt, and pepper. Pour over chicken and turn pieces to coat evenly. Cover and chill at least 30 minutes or overnight.
-                                Lay chicken on a grill over medium heat (you can hold you hand over the surface only 4 to 5 seconds) and cook, turning once, until no longer pink in the center, 4 to 6 minutes per side.
+
                             </p>
                         </div>
                             

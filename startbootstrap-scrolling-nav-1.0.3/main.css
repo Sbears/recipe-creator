@@ -2,8 +2,18 @@
 	display: none;
 }
 
+#recipe-list-tpl {
+	display: none;
+}
+
 #ingredient-tpl {
 	display: none;
+}
+#ingredient-list-tpl {
+	display: none;
+}
+.enter-ingredient-container {
+
 }
 
 .column-heading {
@@ -22,14 +32,17 @@
 	text-align: left;
 }
 
-.create-recipe-form {
-	padding-top: 50px
+#create-recipe-form {
+	padding-top: 26px
 }
 
 .recipe-form-heading {
-	margin-bottom: 45px;
+/*	margin-bottom: 45px;*/
 }
 
+.recipe-comment {
+	color: #A0A0A0;
+}
 /*.input-name .inputdescription .categories-section {
 	margin: 100px;
 }*/
