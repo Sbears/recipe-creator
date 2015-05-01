@@ -39,6 +39,9 @@
 .about-section {
 	padding-top: 35px;
 }
+
+
+
 /*#create-recipe-form {
 	padding-top: 26px
 }*/
@@ -64,9 +67,30 @@
 	border-radius: 8px;
 }
 
-li {
-	min-width: 30px;
+ul {
+	padding-left: 0px;
+	list-style-position: inside;
+
 }
+
+.input-quantity, .input-unit{
+	width: 80px;
+}
+
+.input-ingredient {
+	width: 200px;
+}
+
+.prep-time-units, .cook-time-units {
+	height: 40px;
+	list-style: none;
+
+
+}
+
+
+
+
 /*.input-name .inputdescription .categories-section {
 	margin: 100px;
 }*/
