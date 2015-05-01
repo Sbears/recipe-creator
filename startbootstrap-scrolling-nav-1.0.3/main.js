@@ -1,9 +1,11 @@
+
+
 var Recipe = function(name, prepTime, cookTime, description, serves, recipeYield, ingredients, directions, category, meal) {
 	console.log(arguments);
 	this.name = name;
 	this.prepTime = prepTime;
 	this.cookTime = cookTime;
-	this.totalTime = parseInt(prepTime) + parseInt(cookTime);
+	this.totalTime = parseInt(prepTime) + parseInt(cookTime) || "";
 	this.description = description;
 	this.serves = serves;
 	this.recipeYield = recipeYield;
@@ -29,12 +31,12 @@ Recipe.prototype.render = function() {
 	}
 
 	this.el.find(".recipe-name").text(this.name);
-	this.el.find(".prep-time").text(this.prepTime);
-	this.el.find(".cook-time").text(this.cookTime);
-	this.el.find(".total-time").text(this.totalTime);	
+	this.el.find(".prep-time").text(" " + this.prepTime + " ");
+	this.el.find(".cook-time").text(" " + this.cookTime + " ");
+	this.el.find(".total-time").text(" " + this.totalTime);	
 	this.el.find(".recipe-description em").text(this.description);
-	this.el.find(".serves").text(this.serves);	
-	this.el.find(".yield").text(this.recipeYield);
+	this.el.find(".serves").text("Serves: " + this.serves);	
+	this.el.find(".yield").text("Yield: " + this.recipeYield);
 	this.el.find(".recipe-directions").text(this.directions);
 
 	return this.el;
@@ -45,10 +47,63 @@ Recipe.prototype.renderList = function() {
 		this.listel = $("#recipe-list-tpl")
 		.clone()
 		.attr("id", null);
+
+		var favorite = false;
+
+		this.listel.find(".recipe-comment").on("click", this.onCommentClick.bind(this));
+		$(document).on("blur", ".edit-comment", this.onCommentBlur.bind(this));
+		this.listel.find(".recipe-favorite").on("click", this.onFavoriteClick.bind(this));
+		$(document).on("click", ".edit-favorite", this.unFavorite.bind(this));
+		this.listel.find(".recipe-view").on("click", this.onViewClick.bind(this));
 	}
 	this.listel.find(".recipe-name").text(this.name);
 	this.listel.find(".recipe-category").text(this.category + ", " + this.meal);
 	return this.listel;
+};
+
+Recipe.prototype.onCommentClick = function(e) {
+	console.log($(e.currentTarget).text());
+//	var save = $(".recipe-comment").text();
+	//console.log(save);
+
+	 $(e.currentTarget).hide().after("<input type='text' class='edit-comment'>");
+	 $(".edit-comment").val($(e.currentTarget).text());
+
+		$(".edit-comment").focus();
+};
+
+Recipe.prototype.onCommentBlur = function(e) {
+	console.log($(e.currentTarget));
+	var newComment = $(e.currentTarget).val();
+	$(e.currentTarget).siblings(".recipe-comment")
+		.show()
+		.text(newComment)
+		.css("color", "black");
+	$(e.currentTarget).remove();
+};
+
+Recipe.prototype.onFavoriteClick = function(e) {
+
+		$(e.currentTarget).hide().after('<td class="edit-favorite"><i class="fa fa-heart"></i></td>');
+		favorite = true;
+		console.log(favorite);
+};
+
+Recipe.prototype.unFavorite = function(e) {
+	console.log("favorite");
+	$(e.currentTarget).hide();
+	$(e.currentTarget).siblings(".recipe-favorite").show();
+//	$(e.currentTarget).siblings(".recipe-favorite").show();
+	favorite = false;
+};
+
+Recipe.prototype.onViewClick = function() {
+	console.log("onViewClick");
+
+	$(".recipe-viewing").empty();
+	//
+	$(".recipe-viewing").append(this.render());
+//	$(".recipe-viewing").append(oneRecipe.render());
 };
 
 var Ingredient = function(name, quantity, unit) {
@@ -77,8 +132,7 @@ Ingredient.prototype.renderList = function() {
 			.attr("id", null);
 	}
 	this.listel.text(this.quantity + " " + this.unit + " " +  this.name);
-	// this.listel.find(".quantity").text(this.quantity);
-	// this.listel.find(".unit").text(this.unit);
+
 	return this.listel;
 };
  
@@ -108,7 +162,8 @@ $("#enter-ingredient-button").on("click", function(e) {
 ////////// Event Handler Will Create an Instance of a Recipe From Form ////////////
 console.log($("#create-recipe-form"));
 $(".submit-button").on("click", function(e) {
-//	e.preventDefault();
+//	e.preventDefault()
+	$(".recipe-viewing").empty();
 	var name = $(this).parents("#create-recipe-form").find(".input-name").val();
 	var prepTime = $(this).parents("#create-recipe-form").find(".input-prep-time").val();
 	var cookTime = $(this).parents("#create-recipe-form").find(".input-cook-time").val();
@@ -126,35 +181,33 @@ $(".submit-button").on("click", function(e) {
  	$(".recipe-viewing").append(oneRecipe.render());
 	$(".recipe-list-container").append(oneRecipe.renderList());
 	document.getElementById("create-recipe-form").reset();
+	$(".enter-ingredient-container").empty();
+	ingredientArray = [];
 
 });
 
 ///////// Instance of Cilantro Chicken Recipe //////////////////////////
 	var chicken = new Ingredient("boneless skinless chicken breasts", 4);
-	var limeJuice = new Ingredient("lime juice", 0.25, "cups");
-	var cilantro = new Ingredient("cilantro", 0.5, "cups");
+	var limeJuice = new Ingredient("lime juice", "1/4", "cup");
+	var cilantro = new Ingredient("cilantro", "1/2", "cup");
 	var garlic = new Ingredient("garlic cloves, chopped", 6);
 	var honey = new Ingredient("honey", 1, "Tb");
 	var oliveOil = new Ingredient("olive oil", 1, "Tb");
-	var salt = new Ingredient("salt", 0.5, "tsp"); 
-	var pepper = new Ingredient("pepper", 0.25, "tsp");
+	var salt = new Ingredient("salt", "1/2", "tsp"); 
+	var pepper = new Ingredient("pepper", "1/4", "tsp");
 
 
-  var cilantroChicken = new Recipe("Cilantro Chicken", 40, 15, "This recipe includes an easy to put together marinade that gives chicken breasts a nice flavor. It is great served with Mexican Rice and tortillas. Recipe is from Sunset Magazine and was submitted by Cheryl Brown.", 4, null, [chicken, limeJuice, cilantro, garlic, honey, oliveOil, salt, pepper], "Pound the chicken breasts to an even thickness (about 1/2 in.) and place in a shallow baking pan.\nIn a small bowl, mix lime juice, cilantro, garlic, honey, olive oil, salt, and pepper. Pour over chicken and turn pieces to coat evenly. Cover and chill at least 30 minutes or overnight.\nLay chicken on a grill over medium heat (you can hold you hand over the surface only 4 to 5 seconds) and cook, turning once, until no longer pink in the center, 4 to 6 minutes per side.", "Main Course", "Dinner" );
+  var cilantroChicken = new Recipe("Cilantro Chicken", 40, 15, "This recipe includes an easy to put together marinade that gives chicken breasts a nice flavor. It is great served with Mexican Rice and tortillas. Recipe is from Sunset Magazine and was submitted by Cheryl Brown.", 4, "", [chicken, limeJuice, cilantro, garlic, honey, oliveOil, salt, pepper], "Pound the chicken breasts to an even thickness (about 1/2 in.) and place in a shallow baking pan.\nIn a small bowl, mix lime juice, cilantro, garlic, honey, olive oil, salt, and pepper. Pour over chicken and turn pieces to coat evenly. Cover and chill at least 30 minutes or overnight.\nLay chicken on a grill over medium heat (you can hold you hand over the surface only 4 to 5 seconds) and cook, turning once, until no longer pink in the center, 4 to 6 minutes per side.", "Main Course", "Dinner" );
 
 
 
 console.log(cilantroChicken.category);
 console.log(cilantroChicken.meal);
 
-$(".recipe-list-container").append(cilantroChicken.renderList());
+$(".recipe-list-container").append(cilantroChicken.renderList());//
 // $(".recipe-viewing").append(cilantroChicken.render());
 
 //console.dir(cilantroChicken.render());
-
-
-
-
 
 
 

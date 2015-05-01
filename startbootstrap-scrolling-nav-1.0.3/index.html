@@ -23,6 +23,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -55,9 +56,9 @@
                     <li>
                         <a class="page-scroll" href="#services">Pairing Playground</a>
                     </li>
-                    <li>
+ <!--                    <li>
                         <a class="page-scroll" href="#contact">View Recipe</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -87,8 +88,8 @@
                           <td class="recipe-name"></td>
                           <td class="recipe-category"></td>
                           <td class="recipe-comment">Enter Comment</td>
-                          <td class="recipe-favorite">xx</td>
-                          <td class="recipe-view">xx</td>
+                          <td class="recipe-favorite"><i class="fa fa-circle-thin"></i></td>
+                          <td class="recipe-view"> <a class="page-scroll" href="#contact"><i class="fa fa-hand-o-down"></i></a></td>
                         </tr>
 
                       </tbody>
@@ -188,6 +189,7 @@
                                   <option value="lbs">
                                 </datalist>
                                 <input name="ingredient" class="input-ingredient" placeholder="Ingredient">
+
                                 <button id="enter-ingredient-button">Enter Ingredient</button>
                             </div>
 
@@ -196,7 +198,8 @@
                         <div class="directions-input-section form-group">
                             <textarea class="form-control input-directions" rows="3" placeholder="Directions"></textarea>
                         </div>
-                        <input type="submit" class="submit-button">
+                         <a class="page-scroll" href="#contact"><input type="submit" class="submit-button"></a>
+                        
                     </form>
                 </div>
             </div>
@@ -220,18 +223,37 @@
             <div class="recipe-viewing row">
 
                     <h1>Recipe Viewing</h1>
-                    <div id="recipe-tpl" class=" col-md-12">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+                        <div id="recipe-tpl" class=" col-md-12">
                         <h2 class="recipe-name">Recipe Name</h2>
-                        <div><span class="prep-time"></span><span class="cook-time"></span><span class="total-time"></span>
+                        <div class="time-container">
+                            <span class="time-span">
+                                <span>Preperation Time:</span><span class="prep-time"></span>
+                            </span>
+                            <span class="time-span">
+                                <span>Cook Time:</span><span class="cook-time"></span>
+                            </span>
+                            <span class="time-span">
+                                <span>Total Time:</span><span class="total-time"></span>
+                            </span>
                         </div>
                         <p class="recipe-description">
                             <em>This will be a brief description of the recipe with added comments</em>
                         </p>
                         <div class="ingredients-container col-md-6">
-                            <h3>Ingredients</h3>
+                            <h3 class="ingredients-heading">Ingredients</h3>
 
-                                <div class="servings-yield serves col-md-6 align-left ">Servings</div>
-                                <div class="servings-yield yield col-md-6 align-left ">Yield</div>
+                                <div class="col-md-6 align-left ">
+                                <span class="servings-yield serves"></span>
+                                </div>
+                                <div class=" col-md-6 align-left ">
+                                <span class="servings-yield yield"></span>
+                                </div>
 
                                 <div class="ingredient-list"></div>
                         </div>
@@ -249,10 +271,6 @@
                         <div class="unit col-xs-2 align-left"></div>
                         <div class="name col-xs-9 align-left"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

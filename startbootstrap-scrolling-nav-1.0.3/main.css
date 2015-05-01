@@ -12,19 +12,23 @@
 #ingredient-list-tpl {
 	display: none;
 }
-.enter-ingredient-container {
-
+.ingredient-list {
+	margin-top: 50px;
 }
 
+.ingredients-heading {
+	margin-bottom: 15px;
+}
 .column-heading {
 	text-align: center;
 }
 
 .servings-yield {
 
-	background-color: #D1FFFF;
+	background-color: #F0f8FF;
 	padding: 5px;
-/*	margin: 2px*/;
+	border-radius: 8px;
+	margin: 10px auto;
 }
 
 .align-left {
@@ -32,16 +36,36 @@
 	text-align: left;
 }
 
-#create-recipe-form {
-	padding-top: 26px
+.about-section {
+	padding-top: 35px;
 }
+/*#create-recipe-form {
+	padding-top: 26px
+}*/
 
 .recipe-form-heading {
-/*	margin-bottom: 45px;*/
+	margin-bottom: 35px;
 }
 
 .recipe-comment {
 	color: #A0A0A0;
+}
+
+.time-container {
+	margin: 20px auto;
+}
+
+
+.time-span {
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: #F0f8FF;
+	padding: 5px;
+	border-radius: 8px;
+}
+
+li {
+	min-width: 30px;
 }
 /*.input-name .inputdescription .categories-section {
 	margin: 100px;
